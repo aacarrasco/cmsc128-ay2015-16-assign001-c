@@ -9,69 +9,50 @@ cmsc128-ay2015-16-assign001-c
 // This function generates the word form of a single digit.
 void onesNumber(int num){
 	switch(num){
-		case 1:
-			printf(" one");
-			break;
-		case 2:
-			printf(" two");
-			break;
-		case 3:
-			printf(" three");
-			break;
-		case 4:
-			printf(" four");
-			break;
-		case 5:
-			printf(" five");
-			break;
-		case 6:
-			printf(" six");
-			break;
-		case 7:
-			printf(" seven");
-			break;
-		case 8:
-			printf(" eight");
-			break;
-		case 9:
-			printf(" nine");
-			break;
+		case 1:	printf(" one");
+				break;
+		case 2:	printf(" two");
+				break;
+		case 3:	printf(" three");
+				break;
+		case 4:	printf(" four");
+				break;
+		case 5:	printf(" five");
+				break;
+		case 6:	printf(" six");
+				break;
+		case 7:	printf(" seven");
+				break;
+		case 8:	printf(" eight");
+				break;
+		case 9:	printf(" nine");
+				break;
 	}
 }
 
 // This function generates the word form of a line of one, 2-digit number.
 void lineOfOnes(int num){
 	switch(num){
-		case 10:
-			printf(" ten");
-			break;
-		case 11:
-			printf(" eleven");
-			break;
-		case 12:
-			printf(" twelve");
-			break;
-		case 13:
-			printf(" thirteen");
-			break;
-		case 14:
-			printf(" fourteen");
-			break;
-		case 15:
-			printf(" fifteen");
-			break;
-		case 16:
-			printf(" sixteen");
-			break;
-		case 17:
-			printf(" seventeen");
-			break;
-		case 18:
-			printf(" eighteen");
-			break;
-		case 19:
-			printf(" nineteen");
-			break;
+		case 10:	printf(" ten");
+					break;
+		case 11:	printf(" eleven");
+					break;
+		case 12:	printf(" twelve");
+					break;
+		case 13:	printf(" thirteen");
+					break;
+		case 14:	printf(" fourteen");
+					break;
+		case 15:	printf(" fifteen");
+					break;
+		case 16:	printf(" sixteen");
+					break;
+		case 17:	printf(" seventeen");
+					break;
+		case 18:	printf(" eighteen");
+					break;
+		case 19:	printf(" nineteen");
+					break;
 	}
 }
 
@@ -79,41 +60,32 @@ void lineOfOnes(int num){
 void tensNumber(int num, int quo){
 	int temp = num/10;
 	switch(temp){
-		case 1:
-			return lineOfOnes(num);	// For line of one cases
-			break;
-		case 2:
-			printf(" twenty");
-			onesNumber(quo);
-			break;
-		case 3:
-			printf(" thirty");
-			onesNumber(quo);
-			break;
-		case 4:
-			printf(" forty");
-			onesNumber(quo);
-			break;
-		case 5:
-			printf(" fifty");
-			onesNumber(quo);
-			break;
-		case 6:
-			printf(" sixty");
-			onesNumber(quo);
-			break;
-		case 7:
-			printf(" seventy");
-			onesNumber(quo);
-			break;
-		case 8:
-			printf(" eighty");
-			onesNumber(quo);
-			break;
-		case 9:
-			printf(" ninety");
-			onesNumber(quo);
-			break;
+		case 1:	return lineOfOnes(num);	// For line of one cases
+				break;
+		case 2:	printf(" twenty");
+				onesNumber(quo);
+				break;
+		case 3:	printf(" thirty");
+				onesNumber(quo);
+				break;
+		case 4:	printf(" forty");
+				onesNumber(quo);
+				break;
+		case 5:	printf(" fifty");
+				onesNumber(quo);
+				break;
+		case 6:	printf(" sixty");
+				onesNumber(quo);
+				break;
+		case 7:	printf(" seventy");
+				onesNumber(quo);
+				break;
+		case 8:	printf(" eighty");
+				onesNumber(quo);
+				break;
+		case 9:	printf(" ninety");
+				onesNumber(quo);
+				break;
 	}
 	
 }
@@ -121,31 +93,22 @@ void tensNumber(int num, int quo){
 // This function prints the place. Ignores printing tens and ones.
 void displayPlace(int div){
 	switch(div){
-		case 1000000:
-			printf(" million");
-			break;
-		case 100000:
-			printf(" hundred");
-			break;
-		case 1000:
-			printf(" thousand");
-			break;
-		case 100:
-			printf(" hundred");
-			break;
+		case 1000000:	printf(" million");
+						break;
+		case 100000:	printf(" hundred thousand");
+						break;		
+		case 1000:		printf(" thousand");
+						break;
+		case 100:		printf(" hundred");
+						break;
 	}
 }
 
 // This function accepts a whole number from zero to 1 million (1000000; without commas, for example: 1000000) and prints on screen the number in word form.
-void numToWords(){
-	int num = 0;	// Number
+void numToWords(int num){
 	int div = 0;	// Divisor
 	int quo = 0;	// Quotient
 	int rem = 0;	// Remainder
-	
-	printf("\nNUMBER TO WORDS");
-	printf("\nEnter a number \nfrom 0 to 1000000 (No commas): ");
-	scanf("%d", &num);
 	
 	printf("\nConverting %d to Words...\n\n", num);
 	

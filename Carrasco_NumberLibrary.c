@@ -12,14 +12,17 @@ cmsc128-ay2015-16-assign001-c
 
 int main(){
 	int choice;
+	int num;
 	
 	do{
 		choice = displayMenu();
 		
 		switch(choice){
-			case 1:
-				numToWords();	// Calls numToWords(), converts integers to its equivalent word form.
-				break;
+			case 1:	printf("\nNUMBER TO WORDS");
+					printf("\nEnter a number \nfrom 0 to 1000000 (No commas): ");
+					scanf("%d", &num);
+					numToWords(num);	// Calls numToWords(), converts integers to its equivalent word form.
+					break;
 			case 2:
 				break;
 			case 3:

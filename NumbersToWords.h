@@ -106,40 +106,62 @@ void displayPlace(int div){
 }
 
 // This function accepts a whole number from zero to 1 million (1000000; without commas, for example: 1000000) and prints on screen the number in word form.
-void numToWords(int num){
+void numToWords(){
+	int num;
 	int div = 0;	// Divisor
 	int quo = 0;	// Quotient
 	int rem = 0;	// Remainder
-	
-	printf("\nConverting %d to Words...\n\n", num);
-	
-	if(num!=0){	// If num is not zero, convert to words, otherwise just print "zero".
-		div = 1000000;	// Set divisor to 1000000 for millionth place.
-		while(num!=0 && div!=0){	// Loop until num is zero and divisor is 1.
-			quo = num / div;	// Divide number by divisor.
-			rem = num % div;	// Also get the remainder for next division.
-			
-			if(quo!=0){	// Skip conversion if quotient is 0.
-				if(div==10000){	// Special case for ten thousandth place
-					tensNumber(num / 1000, (num % 10000)/1000);	// Different convention from normal	(eg. twenty, eleven, etc).
-					displayPlace(1000);	// Prints the place of the number.
-					
-					num = num % 1000;	// Update number.
-					div/=10;	// Update divisor.
-					continue;
-				} else if(div==10){	// Special case for tenth place.
-					tensNumber(num, rem);	// Same concept with ten thousandth place.
-					break;	// Break from loop since it already prints ones place.
-				} else {	// Every other place with normal conventions.
-					onesNumber(quo);
-					displayPlace(div);
-				}
-			}
-			num = rem;	// Update number.
-			div/=10;	// Update divisor.
-		}
 
-	} else {
-		printf(" zero ");
-	}
+	do{
+		printf("\nNUMBER TO WORDS");
+		printf("\nEnter a number to be converted: ");
+		scanf("%d", &num);
+
+		if (num >= 0 && num <= 1000000)	{	// Checks if number is between 0 to 1000000.
+			printf("\nConverting %d to Words...\n\n", num);
+			
+			if(num!=0){	// If num is not zero, convert to words, otherwise just print "zero".
+				div = 1000000;	// Set divisor to 1000000 for millionth place.
+				while(num!=0 && div!=0){	// Loop until num is zero and divisor is 1.
+					quo = num / div;	// Divide number by divisor.
+					rem = num % div;	// Also get the remainder for next division.
+					
+					if(quo!=0){	// Skip conversion if quotient is 0.
+						if (div == 100000){	// Special case for hundred thousandth place
+							if(rem<=99999 && rem != 0){	// If rem is in between 100000 and 0, then only print "hundred".
+								onesNumber(quo);
+								displayPlace(100);
+							} else {	// otherwise print "hundred thousand".
+								onesNumber(quo);
+								displayPlace(div);
+							}
+						} else if(div==10000){	// Special case for ten thousandth place
+							tensNumber(num / 1000, (num % 10000)/1000);	// Different convention from normal	(eg. twenty, eleven, etc).
+							displayPlace(1000);	// Prints the place of the number.
+							
+							num = num % 1000;	// Update number.
+							div/=10;	// Update divisor.
+							continue;
+						} else if(div==10){	// Special case for tenth place.
+							tensNumber(num, rem);	// Same concept with ten thousandth place.
+							break;	// Break from loop since it already prints ones place.
+						} else {	// Every other place with normal conventions.
+							onesNumber(quo);
+							displayPlace(div);
+						}
+					}
+					num = rem;	// Update number.
+					div/=10;	// Update divisor.
+				}
+
+			} else {
+				printf(" zero ");
+			}
+			break;
+		} else {	// Continue to ask if given number is not in range.
+			printf("\nPlease enter a number from 0 to 1000000");
+		}
+	} while (1);
+	
+			
 }

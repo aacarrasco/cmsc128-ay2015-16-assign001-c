@@ -44,7 +44,7 @@ void viewList(list *head, char delimiter, int place){
 	p = head;
 	while(p != NULL){
 		printf("%c", p->num);
-		if((p->index)%place == 0 && p->index != 0){
+		if(p->index == place && p->index != 0){
 			printf("%c", delimiter);
 		}
 		p = p->next;
@@ -74,7 +74,7 @@ void numberDelimited(){
 		if(check >= 0 && check <=1000000){	// Proceed to asking the delimiter and number of jumps.
 			printf("\nEnter one-character delimiter: ");
 			scanf("%s", delimiter);
-			printf("\nEnter number of places:");
+			printf("\nEnter number of places: ");
 			scanf("%d", &place);
 	
 			index = strlen(num) - 1;	// Add the index starting from 0 to strlen(num)-1 from right to left.

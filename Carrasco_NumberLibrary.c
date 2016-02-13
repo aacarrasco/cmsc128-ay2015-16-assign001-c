@@ -23,10 +23,7 @@ int main(){
 		choice = displayMenu();
 		
 		switch(choice){
-			case 1:	printf("\nNUMBER TO WORDS");
-					printf("\nEnter a number \nfrom 0 to 1000000 (No commas): ");
-					scanf("%d", &num);
-					numToWords(num);	// Calls numToWords(), converts integers to its equivalent word form.
+			case 1:	numToWords();	// Calls numToWords(), converts integers to its equivalent word form.
 					break;
 			case 2:
 				break;

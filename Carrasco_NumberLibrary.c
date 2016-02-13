@@ -27,9 +27,9 @@ int main(){
 			case 1:	numToWords();	// Calls numToWords(), converts integers to its equivalent word form.
 					break;
 			case 2: wordsToNum();	// Calls wordsToNum(), converts words to its equivalent integer form.
-				break;
-			case 3:
-				break;
+					break;
+			case 3:	wordsToCurrency(); // Calls wordsToCurrency(), converts words to its equivalent integer form and adds currency.
+					break;
 			case 4: numberDelimited();	// Calls numberDelimited(), delimits a number given a delimiter and number of places to jump.
 					break;
 			case 0:

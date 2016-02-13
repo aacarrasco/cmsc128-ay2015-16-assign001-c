@@ -56,7 +56,7 @@ void wordsToNum(){
 		words = strtok(NULL, s);
 	}
 
-	printf("\nConverting %s to Words...\n\n", input);
+	printf("\nConverting Words to Numbers...\n\n");
 	i = compute(head);
 	if(i >= 0 && i <= 1000000){	// Checks if user input is within the range of zero to 1 million.
 		printf("\nWORDS TO NUMBERS: %d\n", i);		
@@ -170,4 +170,52 @@ int compute(wordList *head){
 	}
 
 	return total;	// Return total.
+}
+
+void wordsToCurrency(){
+	// This function accepts two arguments: the first argument is the number in word form (from zero to 1 million) and the second argument is any of the following JPY, PHP, USD. This function returns the number in words to its numerical form with a prefix of the currency.
+	wordList *head = NULL;
+	wordList *tail = NULL;
+	char *input;
+	char temp[80];	
+	const char s[2] = " ";
+	char *words;
+	int i;
+	int currency = 0;
+
+	printf("\nWORDS TO NUMBERS");
+
+	printf("\nEnter a number in words: ");
+	getchar();
+	fgets(temp, 80, stdin);
+	input = strtok(temp, "\n");	// Remove newline from fgets().
+
+	words = strtok(input, s);	// Split string into different tokens and create nodes for each.
+	while(words != NULL){
+		insertWord(&head, &tail, words);
+		words = strtok(NULL, s);
+	}
+
+	do{	// Continuously asks for a currency and loops if invalid.
+		printf("\nChoose a currency:\n[1] Japanese Yen\n[2] Philippine Peso\n[3] US Dollar\nChoice: ");
+		scanf("%d", &currency);
+
+		switch(currency){	// Outputs given currency.
+			case 1:	printf("\nJPY");
+					break;
+			case 2:	printf("\nPHP");
+					break;
+			case 3: printf("\nUSD");
+					break;
+			default:	
+					printf("\nInvalid input. Please try again!\n");
+		}
+	} while (currency <=0 || currency>=4);
+
+	i = compute(head);	// Computes the number form of the input, same function used in wordsToNum().
+	if(i >= 0 && i <= 1000000){	// Checks if user input is within the range of zero to 1 million.
+		printf("%d\n", i);		
+	} else {
+		printf("\nPlease enter a number from 0 to 1000000");
+	}
 }

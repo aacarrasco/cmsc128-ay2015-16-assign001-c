@@ -128,7 +128,7 @@ void numToWords(){
 					
 					if(quo!=0){	// Skip conversion if quotient is 0.
 						if (div == 100000){	// Special case for hundred thousandth place
-							if(rem<=99999 && rem != 0){	// If rem is in between 100000 and 0, then only print "hundred".
+							if(rem<=99999 && (rem%10) != 0){	// If rem is in between 100000 and 0, then only print "hundred".
 								onesNumber(quo);
 								displayPlace(100);
 							} else {	// otherwise print "hundred thousand".

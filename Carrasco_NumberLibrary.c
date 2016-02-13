@@ -7,12 +7,15 @@ cmsc128-ay2015-16-assign001-c
 */
 
 #include <stdio.h>
-#include "Carrasco_NumberLibrary.h"
+#include "NumbersToWords.h"
+#include "NumbersDelimited.h"
 
+int displayMenu();
 
 int main(){
 	int choice;
 	int num;
+	char delimiter;
 	
 	do{
 		choice = displayMenu();
@@ -27,8 +30,13 @@ int main(){
 				break;
 			case 3:
 				break;
-			case 4:
-				break;
+			case 4: printf("\nNUMBERS DELIMITED");
+					printf("\nEnter number to be delimited\n");
+					scanf("%d", &num);
+					printf("\nEnter one-character delimiter\n");
+					scanf("%c", &delimiter);
+					numberDelimited();
+					break;
 			case 0:
 				return 0;
 			default:
@@ -36,5 +44,23 @@ int main(){
 		}
 		
 	}while (choice!=0);
+}
+
+// This function prints the menu for the Number Library
+int displayMenu(){
+	int choice;
+	
+	printf("\n\n\t-------------------------");
+	printf("\n\tMENU");
+	printf("\n\t[1] Numbers to Words");
+	printf("\n\t[2] Words to Numbers");
+	printf("\n\t[3] Words to Currency");
+	printf("\n\t[4] Numbers Delimited");
+	printf("\n\t[0] Exit");
+	printf("\n\n\t-------------------------");
+	printf("\n\tChoice: ");
+	scanf("%d", &choice);
+	
+	return choice;
 }
 

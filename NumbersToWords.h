@@ -4,6 +4,7 @@ Carrasco, Angelica Grace A.
 Cmsc128 AB-2L
 Assign 001: Number Library
 cmsc128-ay2015-16-assign001-c
+NumbersToWords Library
 */
 
 // This function generates the word form of a single digit.
@@ -141,22 +142,4 @@ void numToWords(int num){
 	} else {
 		printf(" zero ");
 	}
-}
-
-// This function prints the menu for the Number Library
-int displayMenu(){
-	int choice;
-	
-	printf("\n\n\t-------------------------");
-	printf("\n\tMENU");
-	printf("\n\t[1] Numbers to Words");
-	printf("\n\t[2] Words to Numbers");
-	printf("\n\t[3] Words to Currency");
-	printf("\n\t[4] Numbers Delimited");
-	printf("\n\t[0] Exit");
-	printf("\n\n\t-------------------------");
-	printf("\n\tChoice: ");
-	scanf("%d", &choice);
-	
-	return choice;
 }

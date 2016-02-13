@@ -7,6 +7,8 @@ cmsc128-ay2015-16-assign001-c
 */
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "NumbersToWords.h"
 #include "NumbersDelimited.h"
 
@@ -30,12 +32,7 @@ int main(){
 				break;
 			case 3:
 				break;
-			case 4: printf("\nNUMBERS DELIMITED");
-					printf("\nEnter number to be delimited\n");
-					scanf("%d", &num);
-					printf("\nEnter one-character delimiter\n");
-					scanf("%c", &delimiter);
-					numberDelimited();
+			case 4: numberDelimited();
 					break;
 			case 0:
 				return 0;
